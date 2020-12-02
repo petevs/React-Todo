@@ -2,7 +2,7 @@ import React from 'react'
 
 class TodoForm extends React.Component {
 
-    constructor() {
+    constructor(props) {
         super();
         this.state = {
             newTodo: ""
@@ -22,7 +22,7 @@ class TodoForm extends React.Component {
         this.setState({ newTodo: "" })
     }
 
-    render() {
+    render(props) {
         return (
             <form onSubmit={this.submitTodo}>
                 <input 
@@ -32,6 +32,7 @@ class TodoForm extends React.Component {
                     name="todo"
                 />
                 <button>Add Todo</button>
+                <button onClick={this.props.clearCompleted}>Clear Completed</button>
             </form>
         )
     }

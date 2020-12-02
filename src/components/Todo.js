@@ -4,7 +4,6 @@ export default function Todo(props) {
 
     const completed = (todo) => {
         if(todo.completed) {
-            console.log('completed')
             return 'completed'
         } else {
             return ''
