@@ -30,13 +30,16 @@ class App extends React.Component {
   } 
 
   addTodo = (e, item) => {
-    console.log(item)
-    // e.preventDefault()
-    // const newTodo = {
-    //   task: item,
-    //   id: Data.now(),
-    //   completed: false 
-    // }
+    e.preventDefault()
+    const newTodo = {
+      task: item,
+      id: Date.now(),
+      completed: false 
+    }
+    this.setState({
+      ...this.state,
+      todos: [...this.state.todos, newTodo]
+    })
   }
 
 
@@ -49,7 +52,7 @@ class App extends React.Component {
     return (
       <div>
         <h2>To-Do</h2>
-        <TodoList todos={todos} toggleTodo={this.toggleTodo}/>
+        <TodoList todos={this.state.todos} toggleTodo={this.toggleTodo}/>
         <TodoForm addTodo={this.addTodo} />
       </div>
     );
