@@ -12,7 +12,7 @@ export default function Todo(props) {
     
     return (
         <div
-            className={completed(props.todo)} 
+            className={`todo ${completed(props.todo)}`} 
             onClick={() => props.toggleTodo(props.todo.id)}
         >
             <p>{props.todo.task}</p>
