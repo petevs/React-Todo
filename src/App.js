@@ -1,5 +1,6 @@
 import React from 'react';
 import TodoList from './components/TodoList'
+import TodoForm from './components/TodoForm'
 
 
 const todos = [
@@ -29,7 +30,7 @@ class App extends React.Component {
   } 
 
   addTodo = (e, item) => {
-    console.log("adding item")
+    console.log(item)
     // e.preventDefault()
     // const newTodo = {
     //   task: item,
@@ -48,7 +49,8 @@ class App extends React.Component {
     return (
       <div>
         <h2>To-Do</h2>
-        <TodoList todos={todos} />
+        <TodoList todos={todos} toggleTodo={this.toggleTodo}/>
+        <TodoForm addTodo={this.addTodo} />
       </div>
     );
   }
