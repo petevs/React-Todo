@@ -1,21 +1,24 @@
 import React from 'react'
 
-export default function Todo(props) {
-
-    const completed = (todo) => {
-        if(todo.completed) {
-            return 'completed'
-        } else {
-            return ''
-        }
+const completed = (todo) => {
+    if(todo.completed) {
+        return 'completed'
+    } else {
+        return ''
     }
-    
-    return (
-        <div
-            className={`todo ${completed(props.todo)}`} 
-            onClick={() => props.toggleTodo(props.todo.id)}
-        >
-            <p>{props.todo.task}</p>
-        </div>
-    )
 }
+
+class Todo extends React.Component {
+    render() {
+        return (
+            <div
+                className={`todo ${completed(this.props.todo)}`}
+                onClick={() => this.props.toggleTodo(this.props.todo.id)}
+            >
+                <p>{this.props.todo.task}</p>
+            </div>
+        )
+    }
+}
+
+export default Todo
