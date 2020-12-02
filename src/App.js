@@ -43,8 +43,21 @@ class App extends React.Component {
   }
 
 
-  toggleTodo = (itemId) => {
-    console.log("toggling item", itemId)
+  toggleTodo = (todoId) => {
+    console.log("toggling item", todoId)
+    this.setState({
+      ...this.state,
+      todos: this.state.todos.map((todo) => {
+        if (todoId === todo.id) {
+          return {
+            ...todo,
+            completed: !todo.completed
+          } 
+          } else {
+            return todo
+        }
+      })
+    })
   }
 
 
